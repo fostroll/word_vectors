@@ -16,7 +16,10 @@ from corpuscula.conllu import Conllu
 from corpuscula.wikipedia_utils import download_wikipedia
 from toxine.wikipedia_utils import TokenizedWikipedia
 
-FIELD = 'LEMMA'                    # какое поле нам нужно
+FIELD = 'FORM'                     # какое поле нам нужно
+# NB: в TokenizedWikipedia().articles() есть только поле FORM, остальные поля
+#     пустые
+
 #corpus = 'wiki_tagged.conllu'      # исходный корпус. если None, берём
 corpus = None                      #     TokenizedWikipedia().articles()
 parsed_corpus = 'wiki_{}_parsed.txt'.format(FIELD)  # куда сохранять результат
