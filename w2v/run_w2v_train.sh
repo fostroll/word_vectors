@@ -10,7 +10,6 @@ WINDOW=7
 VOCAB_MIN_COUNT=10
 SEED=42
 EPOCHS=1000
-MAX_EPOCHS=1000
 CHECKPOINT_EVERY=20
 WORKERS=+1
 SAVE_MODEL=1
@@ -35,5 +34,4 @@ fi
 python w2v_train.py --corpus $CORPUS $__MODEL $MODEL $__SG $__CBOW_SUM \
        --vector_len $VECTOR_LEN --window $WINDOW \
        --vocab_min_count $VOCAB_MIN_COUNT --seed $SEED --epochs $EPOCHS \
-       --max_epochs $MAX_EPOCHS --checkpoint_every $CHECKPOINT_EVERY \
-       --workers $WORKERS $__SAVE_MODEL
+       --checkpoint_every $CHECKPOINT_EVERY --workers $WORKERS $__SAVE_MODEL
