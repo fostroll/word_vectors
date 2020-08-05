@@ -17,8 +17,9 @@ from corpuscula.wikipedia_utils import download_wikipedia
 from toxine.wikipedia_utils import TokenizedWikipedia
 
 FIELD = 'FORM'                     # какое поле нам нужно
-# NB: в TokenizedWikipedia().articles() есть только поле FORM, остальные поля
-#     пустые
+# NB: В TokenizedWikipedia().articles() есть только поле FORM, остальные поля
+#     пустые. Однако для построения хороших векторов для словоформ без
+#     лемматизации одной википедии мало
 
 #corpus = 'wiki_tagged.conllu'      # исходный корпус. если None, берём
 corpus = None                      #     TokenizedWikipedia().articles()
