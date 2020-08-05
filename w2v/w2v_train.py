@@ -39,9 +39,10 @@ parser.add_argument('--seed', help='default None',
 parser.add_argument('--epochs', help='number iterations during the current '
                                      'train; default 20',
                     type=int, metavar='<int>', default=20)
-#parser.add_argument('--max_epochs', help='number of iterations during all '
-#                                         'trains; default None (no limits)',
-#                    type=int, metavar='<int>', default=None)
+parser.add_argument('--max_epochs', help='number of iterations during all '
+                                         'trains (counting finetuning); '
+                                         'default None (no limits)',
+                    type=int, metavar='<int>', default=None)
 parser.add_argument('--checkpoint_every', help='save model every <int> '
                                                'iterations; default None (off)',
                     type=int, metavar='<int>', default=None)
@@ -99,9 +100,9 @@ class Callback(CallbackAny2Vec):
             sys.stdout.flush()
             model_save()
             print(' done.')
-#         if self.epoch >= args.max_epochs:
-#             print('Max epoch has been reached. Process stopped')
-#             raise MaxEpochReachedException()
+        if self.epoch >= args.max_epochs:
+            print('Max epoch has been reached. Process stopped')
+            raise MaxEpochReachedException()
 
 
 model = Word2Vec.load(args.model) if args.model else \
